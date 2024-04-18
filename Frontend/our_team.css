@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .home {
+    background-color: #cdfbf6;
+    padding: 20px;
+    height: 100vh;
+    width: 100%;
+  }
+
+  
+  
+  .team{
+    text-align: center;
+  }
+  .about-section {
+    background-color: #cdfbf6;
+  }
+  
+  .class-section {
+    background-color: #cdfbf6;
+  }
+  
+  .membership-section {
+    background-color: #cdfbf6;
+  }
+
+    
+
+  .header-section{
+  background-color: #cdfbf6;
+  width: auto;
+}
+
+
+.sign-out1 {
+    position: relative;
+    text-transform: capitalize;
+    font-weight: 500;
+    white-space: pre-wrap;
+    color: white;
+  }
+  .sign-out-container {
+    position: absolute;
+    top:2%;
+    right:2%;
+    border-radius: var(--br-xs);
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+  .clipped-image-20240309-095655-icon1,
+.screenshot-2024-03-09-100742-r-icon2 {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  width: 600px;
+  height: 2.375rem;
+  object-fit: contain;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+  }
+  
+  .team {
+    margin: 10px;
+  }
+  
+  .team h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .icon {
+    width: 20px; 
+    height: 20px; 
+    fill: #0077b5; 
+    cursor: pointer;
+  }

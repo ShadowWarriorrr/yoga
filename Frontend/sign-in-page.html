@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+  <link rel="stylesheet" href="./global.css" />
+  <link rel="stylesheet" href="./sign-in-page.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@700&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Source Sans Pro:ital,wght@0,400;0,600;0,700;1,900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" />
+  <script>
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+
+      const formData = new FormData(event.target);
+      const data = {};
+      formData.forEach((value, key) => { data[key] = value; });
+      for (let [key, value] of formData.entries()) {
+        console.log(key, value);
+
+      }
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(data.number)) {
+        alert('Please enter a valid phone number with exactly 10 digits.');
+        return;
+    }
+    // const ageRegex = /^(?:100|[1-9]?[0-9])$/;
+
+    
+    // if (!ageRegex.test(data.age)) {
+    //     alert('Please enter a valid age between 0 and 100.');
+    //     return;  
+    // }
+    const age = parseInt(data.age);
+  if (isNaN(age) || age < 0 || age > 110) {
+    alert('Please enter a valid age between 0 and 100.');
+    return;
+  }
+      console.log(formData);
+
+      fetch('http://localhost:8800/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          window.location.href = './landing-page.html';
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="sign-in-page">
+    <main class="loginpage">
+      <div class="frame-a">
+        <div class="frame-b">
+          <img class="frame-icon" alt="" src="./public/frame1.svg" />
+
+          <div class="frame-parent">
+            <img class="frame-icon1" alt="" src="./public/frame2.svg" />
+
+            <img class="frame-icon2" alt="" src="./public/frame3.svg" />
+          </div>
+        </div>
+        <img class="content-frame-icon" loading="lazy" alt="" src="./public/frame4.svg" />
+      </div>
+      <div class="content">
+        <form class="full-name-input-frame" onsubmit="return handleSubmit(event)">
+          <div class="name-inp-frame">
+            <div class="title">Create your Free Account</div>
+          </div>
+          <div class="create-account-button">
+            <div class="logged-in-link">
+              <div class="fullname-input">
+                <div class="full-name">Full Name</div>
+                <input class="nameinp" name="name" id="name" placeholder="Enter your Full Name here" type="text"
+                  required />
+              </div>
+            </div>
+            <div class="logged-in-link1">
+              <div class="email-input">
+                <div class="email">Phone No.</div>
+                <input class="numberinp" name="number" id="number" placeholder="Enter your Phone Number here" type="tel"
+                  required />
+              </div>
+            </div>
+
+            <div class="logged-in-link1">
+              <div class="email-input">
+                <div class="email"> Age </div>
+                <input class="numberinp" name="age" id="age" placeholder="Enter your Age here" type="number" required />
+              </div>
+            </div>
+
+            <div class="logged-in-link1">
+              <div class="email-input">
+                <div class="email"> Any Health issues( mention if any )</div>
+                <input class="numberinp" id="des" name="des" placeholder="Enter your health issues here " type="text" />
+              </div>
+            </div>
+            <input type="submit" value="Create Account" class="buttoncreateacc" id="buttoncreateacc">
+          </div>
+          <div class="google-frame">
+            <div class="signup-with-google-button">
+              <!-- <button  class="buttoncreateacc" id ="buttoncreateacc">
+                  <div class="create-account">
+                    <a href="./landing-page.html">Create Account</a></div>
+                </button> -->
+            </div>
+            <!-- <div class="already-have-a-container">
+                <span class="already-have-a">Already have a account?</span>
+                <span class="span84"> </span>
+                <span class="log-in">Log in</span>
+              </div> -->
+          </div>
+          <div class="divider-or">
+            <div class="o-r-label">
+
+              <div class="content-frame" id="contentFrameContainer">
+
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- <script>
+      var contentFrameContainer = document.getElementById("contentFrameContainer");
+      if (contentFrameContainer) {
+        contentFrameContainer.addEventListener("click", function (e) {
+          // window.location.href = "personal-info.html";
+        });
+      }
+      </script> -->
+</body>
+
+</html>
